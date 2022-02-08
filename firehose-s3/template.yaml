@@ -17,6 +17,7 @@ Resources:
     Properties:
       DeliveryStreamType: DirectPut
       ExtendedS3DestinationConfiguration:
+        BucketARN: !Sub arn:aws:s3:::${DestinationBucketName}
         Prefix: type=!{partitionKeyFromQuery:type}/
         ErrorOutputPrefix: failed/!{firehose:error-output-type}/
         CompressionFormat: UNCOMPRESSED
