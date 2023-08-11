@@ -38,8 +38,9 @@ To use the AWS SAM CLI, you need the following tools.
     cd msk-lambda-iam-python-sam
     ```
 
-1. From the command line, use AWS SAM to deploy the AWS resources for the pattern as specified in the template.yml file:
+1. From the command line, use AWS SAM to build and deploy the AWS resources for the pattern as specified in the template.yml file:
     ```
+    sam build
     sam deploy --guided
     ```
 
@@ -60,6 +61,7 @@ To use the AWS SAM CLI, you need the following tools.
 You should get a message "Successfully created/updated stack - <StackName> in <Region>" if all goes well.
 
 Once you have run `sam deploy --guided` mode once and saved arguments to a configuration file (samconfig.toml), you can use `sam deploy` in future to use these defaults.
+
 
 ## How it works
 
