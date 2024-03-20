@@ -4,7 +4,7 @@ Description: Serverless patterns - Amazon API Gateway to AWS Lambda to Amazon Dy
 Resources:
   LambdaFunction:
     Type: AWS::Serverless::Function
-    Description: 'Lambda function inserts data into DynamoDB table'
+    Description: 'Lambda function inserts and deletes data into/from DynamoDB table'
     Properties:
       FunctionName: WeatherFunction
       Handler: index.lambda_handler
@@ -19,6 +19,11 @@ Resources:
           Properties:
             Path: /
             Method: POST
+        DeleteApiEvent:
+          Type: Api
+          Properties:
+            Path: /
+            Method: DELETE
   DynamoDBTable:
     Type: AWS::Serverless::SimpleTable
     Properties:
