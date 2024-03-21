@@ -13,6 +13,9 @@ Resources:
       Policies:
         DynamoDBCrudPolicy:
           TableName: !Ref DynamoDBTable
+      Environment:
+        Variables:
+          DYNAMODB_TABLE_NAME: !Ref DynamoDBTable
       Events:
         ApiEvent:
           Type: Api
