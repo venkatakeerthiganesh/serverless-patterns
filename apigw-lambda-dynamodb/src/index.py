@@ -3,14 +3,18 @@
 
 import boto3
 import json
+import os
 
 dynamodb_client = boto3.client('dynamodb')
+
+# Read the DynamoDB table name from environment variable
+dynamodb_table_name = os.environ.get('DYNAMODB_TABLE_NAME')
 
 def insert_item(body):
   # Insert data into DynamoDB table
   try:
     dynamodb_client.put_item(
-      TableName='WeatherData', 
+      TableName=dynamodb_table_name, 
       Item={
           'id': {'S': body['id']}, 
           'Weather': {'S': body['Weather']}
@@ -32,7 +36,7 @@ def delete_item(body):
 
         # Delete the item from DynamoDB table
         dynamodb_client.delete_item(
-            TableName='WeatherData',
+            TableName=dynamodb_table_name,
             Key={
                 'id': {'S': id}
             }
